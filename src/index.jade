@@ -9,7 +9,6 @@ html
     //- Check out 'src/bower_components/prism/themes/' for available themes
     link(rel='stylesheet', type='text/css', href='bower_components/prism/themes/prism-tomorrow.css')
     link(rel='stylesheet', type='text/css', href='styles/main.css')
-    link(rel='stylesheet', type='text/css', href='styles/themes.css')
     // endbuild
 
   body
@@ -31,9 +30,13 @@ html
           li R = Router
 
       section
+        img(src="http://i.kinja-img.com/gawker-media/image/upload/of12zsmstpzaucpij1gh.png",
+            width="100%")
+
+      section
         ul
           li Flujo de datos multi-direcional.
-          li Cada capa es una función de las otras dos.
+          li Cada capa es una función de todas las demas.
 
       section
         h2 Flux + React, (V(M(C(A)))
@@ -50,10 +53,18 @@ html
             |desde la acción hasta el rendering.
 
       section
+        img(src="http://i.imgur.com/DeR0tIZ.png",
+            width="100%")
+
+      section
         ul
           li Flujo de datos lineal.
           li Cada capa equivale conceptualmente a una "función pura".
           li Rendering de calidad (realmente).
+
+      section
+        img(src="http://getshao.files.wordpress.com/2014/05/screen-shot-2014-05-13-at-11-10-37-pm.png",
+            width="100%")
 
       section
         h2 Corolarios
@@ -83,12 +94,22 @@ html
           li UX —> Driven Testing
           li Iterar la UX mockupeando el backend, idealmente, hasta alcanzar un MVP estable.
 
-
       section
         h2 Pero...
+        h3 ¿Quien lo está usando en producción?
+        ul
+          li Facebook
+          li Instagram
+          li Atom
+          li
+            a(href="http://blog.atom.io/2014/07/02/moving-atom-to-react.html")
+              | http://blog.atom.io/2014/07/02/moving-atom-to-react.html
+          li ...
+
+      section
         pre
           code.language-javascript.
-            quiero.ver.codigo();
+            quiero.ver.codigo("ahora");
 
     // build:js scripts/scripts.js
     script(src='bower_components/bespoke.js/dist/bespoke.min.js')
