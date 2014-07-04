@@ -1,0 +1,103 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Patrones frontend
+
+    // build:css styles/styles.css
+    //- Check out 'src/bower_components/prism/themes/' for available themes
+    link(rel='stylesheet', type='text/css', href='bower_components/prism/themes/prism-tomorrow.css')
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
+    link(rel='stylesheet', type='text/css', href='styles/themes.css')
+    // endbuild
+
+  body
+
+    article
+
+      section
+        h1 Frontend patterns
+
+      section
+        h2 MVC tradicional, App(M,V,C)
+        br
+        ul
+          li M = Modelo, V = Vista, C = Controlador
+          li M <—> V
+          li C <—> M
+          li V <—> C
+          li C = (C(R))
+          li R = Router
+
+      section
+        ul
+          li Flujo de datos multi-direcional.
+          li Cada capa es una función de las otras dos.
+
+      section
+        h2 Flux + React, (V(M(C(A)))
+        br
+        ul
+          li V = React, M = Store, C = Dispatcher, A = Actions
+          li M —> V —> A —> C —> M …
+          li (A—> C) = X
+          li M —> V —> X —> M …
+          li Separar A y C sirve para mantener desacoplados los A’s
+            |(pueden ser muchos), ya que A requiere solo de C
+            |(conviene que sea uno) y sólo C integra todos los M’s.
+            |Este desacople ayuda a mantener la linealidad del flujo de aplicación
+            |desde la acción hasta el rendering.
+
+      section
+        ul
+          li Flujo de datos lineal.
+          li Cada capa equivale conceptualmente a una "función pura".
+          li Rendering de calidad (realmente).
+
+      section
+        h2 Corolarios
+        ul
+          li Mucha complejidad accidental sería fácilmente evitable usando un patrón lineal.
+          li Reducir la complejidad por feature puede ser crucial.
+          li Código predecible = tiempo = $
+          li Funciones puras —> tests unitarios para cada capa.
+          li Se pueden intercambiar librerías de ambos patrones.
+          li El valor del patrón es mayor al de la librería (y al problema que resuelve).
+
+      section
+        h2 Conclusiones
+        ul
+          li Flux mejora MVC al establecer una arquitectura lineal.
+          li React permite renderear/bindear toda la UI sin sacrificar
+            |performance (la mejora) en una forma modular y arbolizada (DOM)
+            |eliminado el problema de sincronizar features y dominios.
+
+      section
+        h2 Derivadas
+
+        ul
+          li TGD —> Test Guided Development
+          li Condigo predecible, cuando falle, hacer un test unitario con la solución y que pase el siguiente issue/ticket/desayuno…)
+        ul
+          li UX —> Driven Testing
+          li Iterar la UX mockupeando el backend, idealmente, hasta alcanzar un MVP estable.
+
+
+      section
+        h2 Pero...
+        pre
+          code.language-javascript.
+            quiero.ver.codigo();
+
+    // build:js scripts/scripts.js
+    script(src='bower_components/bespoke.js/dist/bespoke.min.js')
+    script(src='bower_components/bespoke-keys/dist/bespoke-keys.min.js')
+    script(src='bower_components/bespoke-touch/dist/bespoke-touch.min.js')
+    script(src='bower_components/bespoke-bullets/dist/bespoke-bullets.min.js')
+    script(src='bower_components/bespoke-hash/dist/bespoke-hash.min.js')
+    script(src='bower_components/bespoke-progress/dist/bespoke-progress.min.js')
+    script(src='bower_components/bespoke-state/dist/bespoke-state.min.js')
+    script(src='bower_components/prism/prism.js')
+    script(src='scripts/main.js')
+    // endbuild
